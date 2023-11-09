@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.xxy.mvvmdemo'
+    compileSdk rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.xxy.mvvmdemo"
+        minSdk rootProject.ext.android.minSdkVersion
+        targetSdk rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled true
+    }
+}
+
+dependencies {
+    implementation rootProject.ext.dependencies.appImplementation
+    //去除com.android.support依赖
+    rootProject.ext.dependencies.appExcludeSupport.each{item ->
+        implementation(item){
+            exclude group: 'com.android.support'
+        }
+    }
+    //框架需要的注解器
+    annotationProcessor rootProject.ext.dependencies.appAnnotationProcessor
+}

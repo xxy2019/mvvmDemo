@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#202020</color>
+    <color name="textColorHint">#A0A0A0</color>
+    <color name="textColorVice">#6C6C6C</color>
+
+    <!-- ============================================导航栏样式=============================================== -->
+    <color name="actionbarex_common_title_bar_icon_color_def">#FFFFFFFF</color>
+    <color name="actionbarex_common_title_bar_text_color_def">#FFFFFFFF</color>
+    <color name="actionbarex_common_title_bar_title_text_color_def">#FFFFFFFF</color>
+</resources>

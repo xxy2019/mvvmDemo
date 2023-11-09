@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--ab_statusBarMode 状态栏显示浅色 还是 暗色    -->
+    <style name="ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/action_bar_ordinary_height</item>
+        <item name="ab_immersion">ordinary</item>
+        <item name="ab_bottomLineHeight">@dimen/action_bar_bottom_line_height</item>
+    </style>
+
+    <style name="ActionBar.Common">
+        <item name="abc_titleTextSize">18sp</item>
+        <item name="abc_leftIconPadding">@dimen/basic_ui_action_bar_icon_padding</item>
+        <item name="abc_leftIconMarginLeft">@dimen/basic_ui_action_bar_icon_margin</item>
+        <item name="abc_rightIconPadding">@dimen/basic_ui_action_bar_icon_padding</item>
+        <item name="abc_rightIconMarginRight">@dimen/basic_ui_action_bar_icon_margin</item>
+        <item name="ab_statusBarColor">@color/colorPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="ActionBar.Common.Back">
+        <item name="abc_leftIconRes">@drawable/ic_back</item>
+        <item name="abc_leftIconMarginLeft">10dp</item>
+        <item name="abc_leftIconClickToFinish">true</item>
+    </style>
+
+</resources>
