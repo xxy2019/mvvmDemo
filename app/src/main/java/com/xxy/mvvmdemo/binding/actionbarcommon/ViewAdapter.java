@@ -5,18 +5,15 @@ import me.goldze.mvvmhabit.binding.command.BindingCommand;
 import per.goweii.actionbarex.common.ActionBarCommon;
 
 public class ViewAdapter {
-    /**
-     * @param bindingCommand //绑定监听
-     */
-    @BindingAdapter(value = {"testTitle"}, requireAll = false)
-    public static void setTestTitle(final ActionBarCommon titleBar, final BindingCommand<Boolean> bindingCommand) {
-        titleBar.getTitleTextView().setOnClickListener(view ->
-                bindingCommand.execute());
+
+    @BindingAdapter(value = {"titleText"}, requireAll = false)
+    public static void setTitleText(final ActionBarCommon titleBar, final String titleText) {
+        titleBar.getTitleTextView().setText(titleText);
     }
 
-    @BindingAdapter(value = {"testLeft"}, requireAll = false)
-    public static void setTestLeft(final ActionBarCommon titleBar, final BindingCommand<Boolean> bindingCommand) {
-        titleBar.setOnLeftTextClickListener(view ->
-                bindingCommand.execute());
+    @BindingAdapter(value = {"titleOnClick"}, requireAll = false)
+    public static void setTitleOnClickListener(final ActionBarCommon titleBar, final BindingCommand titleOnClickCommand) {
+        titleBar.getTitleTextView().setOnClickListener(view ->
+                titleOnClickCommand.execute());
     }
 }

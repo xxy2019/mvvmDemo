@@ -40,7 +40,7 @@ public class DbHelper extends BaseDbHelper<AppDatabase> {
     }
 
     /**
-     * 初始化数据库
+     * 获取数据表
      */
     public TestDao getTestDao() {
         if(mDatabase != null) {

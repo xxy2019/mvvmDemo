@@ -10,5 +10,6 @@ public interface HttpDataSource {
 
     Observable<BaseResponseEntity<DemoEntity>> demoPost(String catalog);
 
+    Observable<BaseResponseEntity<String>> testGet();
 
 }

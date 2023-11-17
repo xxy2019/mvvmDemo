@@ -11,10 +11,18 @@ import com.xuexiang.xupdate.XUpdate;
 import com.xxy.mlkitscanner.MNScanManager;
 import com.xxy.mlkitscanner.callback.act.MNScanCallback;
 import com.xxy.mvvmdemo.data.DemoRepository;
+import com.xxy.mvvmdemo.ui.test.TestActivity;
+
 import java.util.ArrayList;
+
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.observers.DisposableObserver;
 import me.goldze.mvvmhabit.base.viewmodel.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
+import me.goldze.mvvmhabit.http.entity.BaseResponseEntity;
+import me.goldze.mvvmhabit.utils.RxUtils;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.goldze.mvvmhabit.utils.lifecycleManager.AppManager;
 
@@ -26,16 +34,17 @@ public class MainViewModel extends BaseViewModel<DemoRepository> {
 
     @SuppressLint("CheckResult")
     public BindingCommand testClickCommand = new BindingCommand(() -> {
-        //请求打开相机权限
-        RxPermissions rxPermissions = new RxPermissions((FragmentActivity) AppManager.getAppManager().currentActivity());
-        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .subscribe(aBoolean -> {
-            if (aBoolean) {
-                ToastUtils.showShort("权限已经打开");
-            } else {
-                ToastUtils.showShort("权限被拒绝");
-            }
-        });
+        startActivity(TestActivity.class);
+//        //请求打开相机权限
+//        RxPermissions rxPermissions = new RxPermissions((FragmentActivity) AppManager.getAppManager().currentActivity());
+//        rxPermissions.request(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                .subscribe(aBoolean -> {
+//            if (aBoolean) {
+//                ToastUtils.showShort("权限已经打开");
+//            } else {
+//                ToastUtils.showShort("权限被拒绝");
+//            }
+//        });
     });
 
     public BindingCommand testClickCommand1 = new BindingCommand(new BindingAction() {
@@ -69,4 +78,30 @@ public class MainViewModel extends BaseViewModel<DemoRepository> {
             });
         }
     });
+
+    private void testGet(){
+        model.testGet()
+                .compose(RxUtils.schedulersTransformer())
+                .compose(RxUtils.exceptionTransformer())
+                .doOnSubscribe(this)
+                .doOnSubscribe((Consumer<Disposable>) disposable ->
+                        showDialog("加载中…"))
+                .subscribe(new DisposableObserver<BaseResponseEntity<String>>(){
+
+                    @Override
+                    public void onNext(BaseResponseEntity<String> stringBaseResponseEntity) {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
 }

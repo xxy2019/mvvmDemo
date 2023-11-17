@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import me.goldze.mvvmhabit.BuildConfig;
 import me.goldze.mvvmhabit.base.BaseApplication;
 import me.goldze.mvvmhabit.crash.CrashConfig;
+import me.goldze.mvvmhabit.http.utils.RetrofitClientUtils;
 import me.goldze.mvvmhabit.utils.KLogUtils;
 import okhttp3.OkHttpClient;
 

@@ -1,5 +1,6 @@
 package com.xxy.mvvmdemo.data.local.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Query;
 import com.xxy.mvvmdemo.data.local.entity.TestEntity;
@@ -10,5 +11,5 @@ import me.goldze.mvvmhabit.local.BaseDao;
 public interface TestDao extends BaseDao<TestEntity> {
 
     @Query("select * from test")
-    List<TestEntity> loadAll();
+    LiveData<List<TestEntity>> loadAll();
 }

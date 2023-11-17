@@ -21,9 +21,7 @@
             android:id="@+id/title_bar"
             style="@style/ActionBar.Common"
             app:abc_titleText="注册"
-            app:abc_leftText="左边"
-            binding:testTitle = "@{viewModel.testClickCommand1}"
-            binding:testLeft = "@{viewModel.testClickCommand2}"/>
+            app:abc_leftText="左边"/>
 
         <TextView
             android:layout_width="wrap_content"

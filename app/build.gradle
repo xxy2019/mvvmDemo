@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.xxy.mvvmdemo'
+    namespace rootProject.ext.android.namespace
     compileSdk rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.xxy.mvvmdemo"
+        applicationId rootProject.ext.android.applicationId
         minSdk rootProject.ext.android.minSdkVersion
         targetSdk rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
@@ -34,6 +34,7 @@ android {
 
 dependencies {
     implementation rootProject.ext.dependencies.appImplementation
+    implementation 'androidx.appcompat:appcompat:1.4.1'
     //去除com.android.support依赖
     rootProject.ext.dependencies.appExcludeSupport.each{item ->
         implementation(item){

@@ -2,8 +2,8 @@ ext {
     //android开发版本配置
     android = [
             compileSdkVersion: 34,//aac最低支持
-            namespace        : "com.example.mvvmdemojava",
-            applicationId    : "com.example.mvvmdemojava",
+            namespace        : "com.xxy.mvvmdemo",
+            applicationId    : "com.xxy.mvvmdemo",
             minSdkVersion    : 23,
             targetSdkVersion : 28,
             versionCode      : 101,
@@ -88,5 +88,6 @@ ext {
                     //换肤控件
                     'com.github.littlefogcat:skin-support:4.0.7',
             ],
+            'material' :   'com.google.android.material:material:1.5.0',
     ]
 }

@@ -1,8 +1,14 @@
 package com.xxy.mvvmdemo.data.local;
 
+import androidx.lifecycle.LiveData;
+
 import com.xxy.mvvmdemo.data.local.base.Constant;
 import com.xxy.mvvmdemo.data.local.base.DbHelper;
 import com.xxy.mvvmdemo.data.local.dao.TestDao;
+import com.xxy.mvvmdemo.data.local.entity.TestEntity;
+
+import java.util.List;
+
 import me.goldze.mvvmhabit.utils.SPUtils;
 import me.goldze.mvvmhabit.utils.Utils;
 
@@ -59,5 +65,10 @@ public class LocalDataSourceImpl implements LocalDataSource {
     @Override
     public String getPassword() {
         return SPUtils.getInstance().getString(Constant.PASSWORD);
+    }
+
+    @Override
+    public LiveData<List<TestEntity>> loadAll() {
+        return testDao.loadAll();
     }
 }

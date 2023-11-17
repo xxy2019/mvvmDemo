@@ -1,5 +1,11 @@
 package com.xxy.mvvmdemo.data.local;
 
+import androidx.lifecycle.LiveData;
+
+import com.xxy.mvvmdemo.data.local.entity.TestEntity;
+
+import java.util.List;
+
 public interface LocalDataSource {
 
     /**
@@ -31,4 +37,9 @@ public interface LocalDataSource {
      * 获取用户密码
      */
     String getPassword();
+
+    /**
+     * 获取表中所有数据
+     */
+    LiveData<List<TestEntity>> loadAll();
 }
